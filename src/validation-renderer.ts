@@ -16,7 +16,7 @@ export class FormValidationRenderer implements ValidationRenderer {
     }
 
     private add(element: Element, error: ValidationError) {
-        const formGroup = element.closest('td');
+        const formGroup = element.closest('.form-group');
         if (!formGroup) {
             return;
         }
@@ -33,7 +33,7 @@ export class FormValidationRenderer implements ValidationRenderer {
     }
 
     private remove(element: Element, error: ValidationError) {
-        const formGroup = element.closest('td');
+        const formGroup = element.closest('.form-group');
         if (!formGroup) {
             return;
         }

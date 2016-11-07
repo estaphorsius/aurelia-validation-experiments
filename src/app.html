@@ -4,28 +4,29 @@
 
   <div class="container">
     <h1>Aurelia Validation</h1>
+
     <form>
-      <ul if.bind="validationController.errors">
-        <li repeat.for="error of validationController.errors">
-          ${error.message}
-        </li>
-      </ul>
-      <div if.bind="valid">
+      <div class="alert alert-danger" if.bind="validationController.errors.length > 0">
+        <ul>
+          <li repeat.for="error of validationController.errors">
+            ${error.message}
+          </li>
+        </ul>
+      </div>
+      <div class="alert alert-success" if.bind="valid">
         Form entries valid.
       </div>
-      <table>
-        <tr>
-          <td>Name:</td>
-          <td><input type="text" value.bind="person.name & validate" /></td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td><input type="text" value.bind="person.email & validate" /></td>
-        </tr>
-        <tr>
-          <td><button type="submit" click.delegate="submit()">Submit</button></td>
-        </tr>
-      </table>
+      <div class="form-group">
+        <label for="name" class="form-control-label">Name</label>
+        <input type="text" class="form-control" value.bind="person.name & validate" />
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-control-label">Email</label>
+        <input type="text" class="form-control" value.bind="person.email & validate" />
+      </div>
+
+      <button class="btn btn-primary" click.delegate="submit()">Submit</button>
     </form>
   </div>
 
