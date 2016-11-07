@@ -1,27 +1,32 @@
 <template>
+  <require from="bootstrap/css/bootstrap.css"></require>
   <require from="./styles.css"></require>
-  <h1>Aurelia Validation</h1>
-  <form>
-    <ul if.bind="validationController.errors">
-      <li repeat.for="error of validationController.errors">
-        ${error.message}
-      </li>
-    </ul>
-    <div if.bind="valid">
-      Form entries valid.
-    </div>
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td><input type="text" value.bind="person.name & validate"/></td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><input type="text" value.bind="person.email & validate"/></td>
-      </tr>
-      <tr>
+
+  <div class="container">
+    <h1>Aurelia Validation</h1>
+    <form>
+      <ul if.bind="validationController.errors">
+        <li repeat.for="error of validationController.errors">
+          ${error.message}
+        </li>
+      </ul>
+      <div if.bind="valid">
+        Form entries valid.
+      </div>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" value.bind="person.name & validate" /></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="text" value.bind="person.email & validate" /></td>
+        </tr>
+        <tr>
           <td><button type="submit" click.delegate="submit()">Submit</button></td>
-      </tr>      
-    </table>
-  </form>
+        </tr>
+      </table>
+    </form>
+  </div>
+
 </template>
