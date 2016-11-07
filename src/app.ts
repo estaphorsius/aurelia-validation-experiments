@@ -4,7 +4,7 @@ import { Person } from "./person";
 
 export class App {
   public static inject() { return [ValidationControllerFactory]; }
-  person: Person;
+  person: Person = new Person();
   valid: boolean;
 
   validationController: ValidationController;
@@ -13,7 +13,6 @@ export class App {
     this.validationController = this.validationControllerFactory.createForCurrentScope();
     this.validationController.validateTrigger = validateTrigger.blur;
     this.validationController.addRenderer(new FormValidationRenderer());
-    this.person = new Person();
     this.validationController.reset();
   }
 
