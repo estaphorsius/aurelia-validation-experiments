@@ -17,10 +17,7 @@ export class App {
   }
 
   bind() {
-    ValidationRules
-      .ensure((p: Person) => p.name).displayName("Name of person").required().maxLength(20)
-      .ensure((p: Person) => p.email).displayName("Emailaddress").required().email().maxLength(30)
-      .on(this.person);
+    Person.setupRules(this.person);
   }
 
   submit(): void {
